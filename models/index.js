@@ -9,9 +9,11 @@ const sequelize = new Seq('remember', 'postgres', process.env.POSTGRES_PASSWORD,
     }
 })
 
+const User = require("./user")(sequelize)
 const Memory = require('./memory')(sequelize)
 
 module.exports = {
     sequelize : sequelize,
-    Memory : Memory
+    Memory    : Memory,
+    User      : User
 }

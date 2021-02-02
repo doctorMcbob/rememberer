@@ -1,0 +1,18 @@
+html
+  head
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+    script(src="/static/login.js")
+  body
+    h1 Login :
+    div(id="form")
+      label(for="name") Name
+      br
+      input(type="text" id="name" required)
+      br
+      label(for="password") Password
+      br
+      input(type="password" id="password" required)
+      br
+      br
+      button(onclick="formSubmit()") Login
+

@@ -10,8 +10,23 @@ const fastify = require('fastify')({
     logger : true,
     ignoreTrailingSlash : true,
 })
+const path = require('path')
 
-fastify.register(require("./db_router"), {})
+fastify.register(require("point-of-view"), {
+    engine : {
+	pug : require("pug")
+    }
+})
+
+fastify.register(require("fastify-static"), {
+    root   : path.join(__dirname, "public"),
+    prefix : "/public/"
+})
+
+fastify.register(require("./authentication"), {})
+fastify.register(require("./memory_router"), {})
+fastify.register(require("./login_router"), {})
+fastify.register(require("./frontend_router"), {})
 
 const start = async () => {
     try {

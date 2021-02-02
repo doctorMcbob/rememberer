@@ -1,0 +1,18 @@
+html
+  head
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+    script(src="/static/main.js")
+  body
+    h1 Remember-er
+    a(href="/login") Login
+    div(id="access")
+      p tags (seperate by comma)
+      input(type="text" id="tags")
+      p text
+      input(type="text" id="text")
+      br
+      br
+      button(onclick="storeButton()") Send
+      button(onclick="retrieveButton()") Retrieve
+
+      p(id="response")
